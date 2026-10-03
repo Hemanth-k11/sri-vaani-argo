@@ -1,0 +1,32 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <circle cx="100" cy="100" r="100" fill="#1D6B38"/>
+  
+  <!-- Grain stalks -->
+  <g stroke="#FFF" stroke-width="3" fill="none" stroke-linecap="round">
+    <!-- Left stalk -->
+    <path d="M 60 140 Q 55 110 60 80"/>
+    <!-- Grain head left -->
+    <circle cx="65" cy="70" r="8" fill="#FFF"/>
+    <circle cx="60" cy="60" r="7" fill="#FFF"/>
+    <circle cx="70" cy="60" r="7" fill="#FFF"/>
+    
+    <!-- Center stalk -->
+    <path d="M 100 150 Q 100 110 100 70"/>
+    <!-- Grain head center -->
+    <circle cx="100" cy="55" r="9" fill="#FFF"/>
+    <circle cx="93" cy="65" r="7" fill="#FFF"/>
+    <circle cx="107" cy="65" r="7" fill="#FFF"/>
+    
+    <!-- Right stalk -->
+    <path d="M 140 140 Q 145 110 140 80"/>
+    <!-- Grain head right -->
+    <circle cx="135" cy="70" r="8" fill="#FFF"/>
+    <circle cx="130" cy="60" r="7" fill="#FFF"/>
+    <circle cx="140" cy="60" r="7" fill="#FFF"/>
+  </g>
+  
+  <!-- Millstone/gear accent at bottom -->
+  <circle cx="100" cy="155" r="12" fill="none" stroke="#FFF" stroke-width="2"/>
+  <circle cx="100" cy="155" r="6" fill="#1D6B38" stroke="#FFF" stroke-width="1.5"/>
+</svg>

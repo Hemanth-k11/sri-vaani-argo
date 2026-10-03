@@ -1,0 +1,49 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle background -->
+  <circle cx="150" cy="150" r="145" fill="#1D6B38" stroke="#FFF" stroke-width="3"/>
+  
+  <!-- Inner decorative circle -->
+  <circle cx="150" cy="150" r="130" fill="none" stroke="#FFF" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Grain stalks with more detail -->
+  <g stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round">
+    <!-- Left stalk -->
+    <path d="M 80 200 Q 70 150 75 100"/>
+    <!-- Grain head left - multiple seeds -->
+    <circle cx="85" cy="80" r="12" fill="#FFF"/>
+    <circle cx="75" cy="65" r="10" fill="#FFF"/>
+    <circle cx="95" cy="65" r="10" fill="#FFF"/>
+    <circle cx="70" cy="80" r="9" fill="#FFF"/>
+    <circle cx="100" cy="80" r="9" fill="#FFF"/>
+    
+    <!-- Center stalk (tallest) -->
+    <path d="M 150 220 Q 150 160 150 90"/>
+    <!-- Grain head center -->
+    <circle cx="150" cy="65" r="13" fill="#FFF"/>
+    <circle cx="135" cy="50" r="11" fill="#FFF"/>
+    <circle cx="165" cy="50" r="11" fill="#FFF"/>
+    <circle cx="130" cy="75" r="10" fill="#FFF"/>
+    <circle cx="170" cy="75" r="10" fill="#FFF"/>
+    
+    <!-- Right stalk -->
+    <path d="M 220 200 Q 230 150 225 100"/>
+    <!-- Grain head right -->
+    <circle cx="215" cy="80" r="12" fill="#FFF"/>
+    <circle cx="205" cy="65" r="10" fill="#FFF"/>
+    <circle cx="225" cy="65" r="10" fill="#FFF"/>
+    <circle cx="200" cy="80" r="9" fill="#FFF"/>
+    <circle cx="230" cy="80" r="9" fill="#FFF"/>
+  </g>
+  
+  <!-- SV Letters at bottom -->
+  <text x="150" y="255" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFF" text-anchor="middle" letter-spacing="2">SV</text>
+  
+  <!-- Bottom accent - millstone pattern -->
+  <circle cx="150" cy="210" r="18" fill="none" stroke="#FFF" stroke-width="2"/>
+  <g stroke="#FFF" stroke-width="1.5" opacity="0.5">
+    <line x1="135" y1="210" x2="165" y2="210"/>
+    <line x1="150" y1="195" x2="150" y2="225"/>
+    <line x1="140" y1="200" x2="160" y2="220"/>
+    <line x1="160" y1="200" x2="140" y2="220"/>
+  </g>
+</svg>

@@ -1,0 +1,523 @@
+/* ─────────────────────────────────────────────
+   GalleryPage.module.css
+   Matches the Sri Vaani Agro Industries design
+   system: Syne headings, DM Sans body, #1D6B38
+   green accent, #F8F6F1 warm off-white bg.
+───────────────────────────────────────────── */
+
+.page { padding-top: 68px; background: #F8F6F1; }
+
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  padding: 72px 5% 56px;
+  background: linear-gradient(135deg, #EAF3EC 0%, #F8F6F1 70%);
+  border-bottom: 1px solid #E8E4DC;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(29,107,56,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29,107,56,0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.heroTag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #1D6B38; margin-bottom: 14px; position: relative;
+}
+.heroTag::before {
+  content: ''; display: inline-block;
+  width: 24px; height: 2px; background: #1D6B38;
+}
+
+.heroTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800; line-height: 1.1;
+  color: #1A1A1A; margin-bottom: 18px; position: relative;
+}
+
+.accent { color: #1D6B38; }
+
+.heroSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; line-height: 1.75;
+  color: #6B5E50; max-width: 540px; position: relative;
+  margin-bottom: 32px;
+}
+
+.heroStats {
+  display: flex; gap: 40px; align-items: center;
+  position: relative;
+}
+
+.heroStat { display: flex; flex-direction: column; gap: 3px; }
+
+.heroStatNum {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px; font-weight: 800;
+  color: #1D6B38; line-height: 1;
+}
+
+.heroStatLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase; color: #8A8070;
+}
+
+/* ── Filter Bar ────────────────────────────── */
+.filterBar {
+  background: #fff;
+  border-bottom: 1px solid #E8E4DC;
+  padding: 0 5%;
+  position: sticky; top: 68px; z-index: 100;
+}
+
+.filterInner {
+  display: flex; align-items: center; gap: 20px;
+  overflow-x: auto; padding: 14px 0;
+  scrollbar-width: none;
+}
+.filterInner::-webkit-scrollbar { display: none; }
+
+.filterLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #8A8070; flex-shrink: 0;
+}
+
+.filterBtns { display: flex; gap: 8px; flex-wrap: nowrap; }
+
+.filterBtn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: #6B5E50; background: #F8F6F1;
+  border: 1px solid #E8E4DC;
+  padding: 7px 16px; cursor: pointer;
+  white-space: nowrap; transition: all 0.2s;
+  display: flex; align-items: center; gap: 7px;
+}
+.filterBtn:hover { border-color: #1D6B38; color: #1D6B38; }
+
+.filterBtnActive {
+  background: #1D6B38; color: #fff; border-color: #1D6B38;
+}
+.filterBtnActive:hover { background: #155229; color: #fff; }
+
+.filterCount {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; font-weight: 700;
+  background: rgba(0,0,0,0.12);
+  padding: 1px 6px; border-radius: 10px;
+}
+.filterBtnActive .filterCount { background: rgba(255,255,255,0.25); }
+
+.filterResult {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; color: #8A8070;
+  margin-left: auto; flex-shrink: 0;
+}
+
+/* ── Gallery Grid ──────────────────────────── */
+.gridSection {
+  padding: 48px 5% 80px;
+}
+
+/* 3-col auto-flow dense — tall and wide cards span multiple tracks */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 14px;
+}
+
+/* ── Card ─────────────────────────────────── */
+.card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #E8E4DC;
+  outline: none;
+}
+.card:focus-visible { box-shadow: 0 0 0 3px #1D6B38; }
+
+.cardTall  { grid-row: span 2; }
+.cardWide  { grid-column: span 2; }
+
+.cardImgWrap {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+
+.cardImg {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+.card:hover .cardImg { transform: scale(1.08); }
+
+.cardOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 22, 12, 0.88) 0%,
+    rgba(10, 22, 12, 0.35) 45%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.card:hover .cardOverlay { opacity: 1; }
+
+/* Meta slides up from bottom; show tag stub by default (~52px) */
+.cardMeta {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px 20px 22px;
+  background: linear-gradient(
+    to top,
+    rgba(10, 22, 12, 0.95) 0%,
+    rgba(10, 22, 12, 0.85) 100%
+  );
+  transform: translateY(calc(100% - 52px));
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 2;
+}
+.card:hover .cardMeta { transform: translateY(0); }
+
+.cardTag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #fff; padding: 4px 10px;
+  margin-bottom: 10px;
+}
+
+.cardTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: #fff; line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.cardCaption {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.cardExpand {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.card:hover .cardExpand { color: #7DC891; }
+
+/* ── Empty State ──────────────────────────── */
+.emptyState {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px 20px; gap: 14px;
+}
+.emptyState span { font-size: 44px; }
+.emptyState p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; color: #8A8070;
+}
+
+/* ── Lightbox ─────────────────────────────── */
+.lightboxOverlay {
+  position: fixed; inset: 0;
+  background: rgba(6, 15, 8, 0.94);
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  animation: fadeInOverlay 0.22s ease;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightboxPanel {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  max-width: 1080px; width: 100%;
+  max-height: 88vh;
+  background: #111A13;
+  position: relative;
+  animation: slideUp 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.lightboxClose {
+  position: absolute; top: 14px; right: 14px; z-index: 10;
+  background: rgba(255,255,255,0.1); color: #fff; border: none;
+  width: 36px; height: 36px; cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lightboxClose:hover { background: rgba(255,255,255,0.2); }
+
+.lightboxImgWrap {
+  position: relative; overflow: hidden;
+  background: #0C140D;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 400px;
+}
+
+.lightboxImg {
+  max-width: 100%; max-height: 88vh;
+  object-fit: contain; display: block;
+  transition: opacity 0.25s ease;
+}
+
+.lightboxNav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.08); color: #fff; border: none;
+  width: 44px; height: 64px; cursor: pointer;
+  font-size: 28px; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lightboxNav:hover { background: rgba(255,255,255,0.18); }
+.lightboxNavPrev { left: 0; }
+.lightboxNavNext { right: 0; }
+
+.lightboxCounter {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.45); padding: 4px 12px;
+}
+
+.lightboxMeta {
+  padding: 28px 24px;
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.1) transparent;
+}
+
+.lightboxTag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #fff; padding: 4px 10px;
+  margin-bottom: 14px; align-self: flex-start;
+}
+
+.lightboxTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: 19px; font-weight: 800;
+  color: #E8F0E8; line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.lightboxCaption {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; line-height: 1.75;
+  color: #5A7A5E; flex: 1;
+}
+
+.thumbStrip {
+  display: flex; gap: 6px; margin-top: 24px;
+  flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 16px;
+}
+
+.stripThumb {
+  background: none; border: 2px solid transparent;
+  padding: 0; cursor: pointer; overflow: hidden;
+  transition: border-color 0.2s; flex-shrink: 0;
+}
+.stripThumb:hover { border-color: rgba(255,255,255,0.3); }
+.stripThumbActive { border-color: #1D6B38 !important; }
+
+.stripThumbImg {
+  width: 52px; height: 40px;
+  object-fit: cover; display: block;
+  opacity: 0.65; transition: opacity 0.2s;
+}
+.stripThumb:hover .stripThumbImg,
+.stripThumbActive .stripThumbImg { opacity: 1; }
+
+/* ── Press Section ────────────────────────── */
+.pressSection {
+  padding: 88px 5%;
+  background: #fff;
+  border-top: 1px solid #E8E4DC;
+}
+
+.sectionTag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: #1D6B38; margin-bottom: 12px;
+}
+.sectionTag::before {
+  content: ''; display: inline-block;
+  width: 24px; height: 2px; background: #1D6B38;
+}
+
+.sectionTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800; line-height: 1.15;
+  color: #1A1A1A; margin-bottom: 12px;
+}
+
+.sectionSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; line-height: 1.7;
+  color: #6B5E50; max-width: 540px; margin-bottom: 44px;
+}
+
+.pressCard {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 60px; align-items: start;
+  background: #F8F6F1;
+  border: 1px solid #E8E4DC;
+  overflow: hidden;
+}
+
+.pressImg {
+  width: 100%; height: 380px;
+  object-fit: cover; display: block;
+}
+
+.pressContent { padding: 36px 36px 36px 0; }
+
+.pressSource {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: #DC2626; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.pressSource::before {
+  content: ''; display: inline-block;
+  width: 16px; height: 2px; background: #DC2626;
+}
+
+.pressHeadline {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(18px, 1.8vw, 24px); font-weight: 800;
+  color: #1A1A1A; line-height: 1.3; margin-bottom: 18px;
+}
+
+.pressText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; line-height: 1.8;
+  color: #6B5E50; margin-bottom: 14px;
+}
+
+.pressDate {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #8A8070; margin-top: 20px;
+  padding-top: 18px; border-top: 1px solid #E8E4DC;
+}
+
+/* ── CTA ──────────────────────────────────── */
+.cta {
+  background: linear-gradient(135deg, #1D6B38, #0F4422);
+  padding: 88px 5%; text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px; pointer-events: none;
+}
+
+.ctaTitle {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 800; color: #fff; margin-bottom: 14px;
+  position: relative;
+}
+
+.ctaSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; color: rgba(255,255,255,0.72);
+  max-width: 420px; margin: 0 auto 36px;
+  line-height: 1.7; position: relative;
+}
+
+.ctaBtns {
+  display: flex; gap: 14px; justify-content: center;
+  flex-wrap: wrap; position: relative;
+}
+
+.btnWhite {
+  background: #fff; color: #1D6B38; border: none;
+  padding: 13px 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: all 0.2s; text-decoration: none; display: inline-block;
+}
+.btnWhite:hover { background: #EAF3EC; }
+
+.btnOutlineW {
+  background: transparent; color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  padding: 12px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.2s;
+}
+.btnOutlineW:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 1100px) {
+  .lightboxPanel { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+  .lightboxImgWrap { min-height: 280px; }
+  .lightboxMeta { padding: 20px; }
+  .pressCard { grid-template-columns: 1fr; }
+  .pressImg { height: 260px; }
+  .pressContent { padding: 28px; }
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 240px; }
+  .cardWide { grid-column: span 2; }
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+  .cardTall { grid-row: span 1; }
+  .cardWide { grid-column: span 1; }
+  .heroStats { gap: 24px; }
+  .filterBtns { flex-wrap: wrap; }
+}

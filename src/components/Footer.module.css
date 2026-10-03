@@ -1,0 +1,181 @@
+.footer {
+  background:white;
+  padding: 64px 5% 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: 52px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid #1E2E22;
+}
+
+/* Brand */
+.brandBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.logoBox {
+  width: 36px;
+  height: 36px;
+  background: #1D6B38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.brandName {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #7DC891;
+}
+
+.tagline {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #3A4A3E;
+  max-width: 240px;
+  margin-bottom: 16px;
+}
+
+.gstBox {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.gstLabel {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #2A3A2E;
+  flex-shrink: 0;
+}
+
+.gstVal {
+  font-size: 12px;
+  color: #3A4A3E;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Columns */
+.col {}
+
+.colTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #3A5040;
+  margin-bottom: 20px;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footLink {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: #2A3A2E;
+  padding: 0;
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.footLink:hover { color: #7DC891; }
+
+/* Contact column */
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactList li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.contactIcon {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  opacity: 0.7;
+}
+
+.contactVal {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #3A4A3E;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactVal:hover { color: #7DC891; }
+
+/* Bottom */
+.bottomBar {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.copy {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #1E2E22;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .brandCol { grid-column: span 2; }
+}
+
+@media (max-width: 600px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .brandCol { grid-column: span 1; }
+  .bottomBar { flex-direction: column; align-items: flex-start; }
+}

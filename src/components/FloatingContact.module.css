@@ -1,0 +1,171 @@
+/* FloatingContact.module.css - Floating WhatsApp & Phone widget */
+
+.container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 500;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Menu Items */
+.menu {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.8);
+  transform-origin: bottom right;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: none;
+  outline: none;
+}
+
+.item:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateX(6px);
+}
+
+.icon {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  color: #1a1a1a;
+}
+
+/* Toggle Button */
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1D6B38, #155229);
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(29, 107, 56, 0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.toggle:hover {
+  box-shadow: 0 6px 20px rgba(29, 107, 56, 0.4);
+  transform: scale(1.1);
+}
+
+.toggle:active {
+  transform: scale(0.95);
+}
+
+.toggle.active {
+  background: linear-gradient(135deg, #155229, #1D6B38);
+  transform: rotate(45deg);
+}
+
+.toggleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.toggle.active .toggleIcon {
+  transform: rotate(-45deg);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(29, 107, 56, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(29, 107, 56, 0.5), 0 0 0 8px rgba(29, 107, 56, 0.1);
+  }
+}
+
+.toggle {
+  animation: pulse 2s infinite;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .toggle {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+
+  .menu {
+    bottom: 66px;
+    gap: 10px;
+  }
+
+  .item {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .label {
+    display: none;
+  }
+
+  .item {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+}
